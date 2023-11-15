@@ -10,7 +10,7 @@
 		<a href="index.php">RFID Attendance</a>
 	</div>
 </div>
-<?php  
+<?php
   if (isset($_GET['error'])) {
 		if ($_GET['error'] == "wrongpasswordup") {
 			echo '	<script type="text/javascript">
@@ -24,7 +24,7 @@
 		              	}, 3000);
 					</script>';
 		}
-	} 
+	}
 	if (isset($_GET['success'])) {
 		if ($_GET['success'] == "updated") {
 			echo '	<script type="text/javascript">
@@ -41,7 +41,7 @@
 	if (isset($_GET['login'])) {
 	    if ($_GET['login'] == "success") {
 	      echo '<script type="text/javascript">
-	              
+
 	              setTimeout(function () {
 	                $(".up_info2").fadeIn(200);
 	                $(".up_info2").text("You successfully logged in");
@@ -56,10 +56,11 @@
 ?>
 <div class="topnav" id="myTopnav">
 	<a href="index.php">Users</a>
+    <a href="add_user.php">Add User</a>
     <a href="ManageUsers.php">Manage Users</a>
     <a href="UsersLog.php">Users Log</a>
     <a href="devices.php">Devices</a>
-    <?php  
+    <?php
     	if (isset($_SESSION['Admin-name'])) {
     		echo '<a href="#" data-toggle="modal" data-target="#admin-account">'.$_SESSION['Admin-name'].'</a>';
     		echo '<a href="logout.php">Log Out</a>';
@@ -113,6 +114,6 @@
   </div>
 </div>
 <!-- //Account Update -->
-	
 
-	
+
+

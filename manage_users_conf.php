@@ -1,17 +1,19 @@
-<?php  
+<?php
 //Connect to database
 require'connectDB.php';
 
+
+
 //Add user
 if (isset($_POST['Add'])) {
-     
+
     $user_id = $_POST['user_id'];
     $Uname = $_POST['name'];
     $Number = $_POST['number'];
     $Email = $_POST['email'];
     $dev_uid = $_POST['dev_uid'];
     $Gender = $_POST['gender'];
-    
+
     //check if there any selected user
     $sql = "SELECT add_card FROM users WHERE id=?";
     $result = mysqli_stmt_init($conn);
@@ -85,7 +87,7 @@ if (isset($_POST['Add'])) {
             else{
                 echo "This User is already exist";
                 exit();
-            }    
+            }
         }
         else {
             echo "There's no selected Card!";
@@ -93,7 +95,7 @@ if (isset($_POST['Add'])) {
         }
     }
 }
-// Update an existance user 
+// Update an existance user
 if (isset($_POST['Update'])) {
 
     $user_id = $_POST['user_id'];
@@ -155,7 +157,7 @@ if (isset($_POST['Update'])) {
                                     $dev_name = "All";
                                 }
                             }
-                                    
+
                             if (!empty($Uname) && !empty($Email)) {
 
                                 $sql="UPDATE users SET username=?, serialnumber=?, gender=?, email=?, device_uid=?, device_dep=? WHERE id=?";
@@ -179,7 +181,7 @@ if (isset($_POST['Update'])) {
                         }
                     }
                 }
-            }    
+            }
         }
         else {
             echo "There's no selected User to be updated!";
@@ -187,7 +189,7 @@ if (isset($_POST['Update'])) {
         }
     }
 }
-// select fingerprint 
+// select fingerprint
 if (isset($_GET['select'])) {
 
     $card_uid = $_GET['card_uid'];
@@ -214,9 +216,9 @@ if (isset($_GET['select'])) {
         $resultl->close();
         $conn->close();
         print json_encode($data);
-    } 
+    }
 }
-// delete user 
+// delete user
 if (isset($_POST['delete'])) {
 
     $user_id = $_POST['user_id'];
